@@ -1,0 +1,67 @@
+<h2 class="text-center pb-3">Rent your spaceship</h2>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <ngb-datepicker 
+      #dp 
+      (select)="onDateSelection($event)" 
+      [displayMonths]="2" 
+      [dayTemplate]="t" 
+      soutsideDays="hidden">
+    </ngb-datepicker>
+    <ng-template #t let-date let-focused="focused">
+      <span class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null">
+        {{ date.day }}
+      </span>
+    </ng-template>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-6">
+        <form>
+            <div class="form-row col-12 mb-3">
+              <div class="col-12 col-sm-6">
+                  <input type="text" class="form-control" placeholder="Pick up location">
+              </div>
+              <div class="col-12 col-sm-6">
+                  <input type="text" class="form-control" placeholder="Drop off location">
+              </div>
+            </div>
+            <div class="form-row justify-content-center">
+              <div class="form-group col-md-4">
+                <select class="custom-select mb-3">
+                  <option selected>Color</option>
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="black">Black</option>
+                </select>
+                <select class="custom-select mb-3">
+                    <option selected>Size</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="big">Big</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <select class="custom-select mb-3">
+                      <option selected>Wings</option>
+                      <option value="eagle">Eagle</option>
+                      <option value="sparrow">Sparrow</option>
+                      <option value="pterodactyl">Pterodactyl</option>
+                  </select>
+                  <select class="custom-select mb-3">
+                      <option selected>Engine</option>
+                      <option value="slow">Slow (economical)</option>
+                      <option value="fast">Fast</option>
+                      <option value="superfast">Superfast</option>
+                  </select>
+                </div>
+            </div>
+          </form>
+          <button type="submit" class="btn btn-primary btn-lg float-right">Search</button>
+    </div>
+  </div>
+</div>
