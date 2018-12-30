@@ -18,7 +18,7 @@ export class SpaceshipsSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;

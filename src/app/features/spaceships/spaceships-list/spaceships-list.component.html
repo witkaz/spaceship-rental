@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-xs-12">
+    <app-spaceship-item
+    *ngFor="let spaceshipEl of spaceships; let i = index"
+    [spaceship]="spaceshipEl"
+    [index]="i"></app-spaceship-item>
+  </div>
+</div>
+
+  
