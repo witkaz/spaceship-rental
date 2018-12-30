@@ -1,5 +1,7 @@
 export class Spaceship {
-  constructor(public name: string,
+  constructor(public pickupLocation: string,
+              public dropoffLocation: string,
+              public name: string,
               public color: string,
               public wings: string,
               public size: string,

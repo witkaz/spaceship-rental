@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class SpaceshipService {
 
     private spaceships: Spaceship[] = [
-        new Spaceship('Example 1','Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkNHUlNq25MaTShMEpV0D7nJ7o52OhltE16cqoq29H73Bcnas'),
-        new Spaceship('Example 2', 'Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkNHUlNq25MaTShMEpV0D7nJ7o52OhltE16cqoq29H73Bcnas'),
-        new Spaceship('Example 3', 'Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkNHUlNq25MaTShMEpV0D7nJ7o52OhltE16cqoq29H73Bcnas'),
-        new Spaceship('Example 3', 'Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkNHUlNq25MaTShMEpV0D7nJ7o52OhltE16cqoq29H73Bcnas'),
+        new Spaceship('Earth', 'Venus', 'Joel','Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable and safety lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', '../assets/img/spaceships/spaceship-ethan.png'),
+        new Spaceship('Earth', 'Jupiter', 'Ethan', 'Blue', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable and safety lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s comfortable and safety', '../assets/img/spaceships/spaceship-joel.png'),
+        new Spaceship('Jupiter', 'Mars', 'Jim', 'Red', 'Eagle', 'Small', 'Superfast', 'The best spaceship', 'Really comfortable and safety lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s comfortable and safety', '../assets/img/spaceships/spaceship-jim.png'),
+        new Spaceship('Mars', 'Pluto', 'Carrey', 'Red', 'Eagle', 'Medium', 'Fast', 'The best spaceship', 'Really comfortable and safety lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s comfortable and safety', '../assets/img/spaceships/spaceship-carrey.png'),
     ];
 
     constructor() {}

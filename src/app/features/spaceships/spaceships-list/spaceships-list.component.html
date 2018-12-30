@@ -1,10 +1,11 @@
-<div class="row">
-  <div class="col-xs-12">
-    <app-spaceship-item
-    *ngFor="let spaceshipEl of spaceships; let i = index"
-    [spaceship]="spaceshipEl"
-    [index]="i"></app-spaceship-item>
-  </div>
+<h2>Your filtered spaceships</h2>
+<div class="row col-12 justify-content-around my-5">
+  <app-spaceship-item
+  *ngFor="let spaceshipEl of spaceships; let i = index"
+  [spaceship]="spaceshipEl"
+  style="cursor: pointer"
+  [index]="i"></app-spaceship-item>
 </div>
+
 
   

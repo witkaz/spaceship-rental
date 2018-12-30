@@ -5,9 +5,10 @@ import { SpaceshipsComponent } from './spaceships.component';
 import { SpaceshipsListComponent } from './spaceships-list/spaceships-list.component';
 import { SpaceshipItemComponent } from './spaceships-list/spaceship-item/spaceship-item.component';
 import { SpaceshipsDetailComponent } from './spaceships-detail/spaceships-detail.component';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SpaceshipsRoutingModule } from './spaceships-routing.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SpaceshipsRoutingModule } from './spaceships-routing.module';
     NgbModule,
     FormsModule,
     CommonModule,
-    SpaceshipsRoutingModule
+    SpaceshipsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 

@@ -14,7 +14,7 @@ const modules = [
   BrowserModule,
   CoreModule,
   SpaceshipsModule,
-  AppRoutingModule
+  AppRoutingModule,
 ];
 
 const providers = [SpaceshipService];

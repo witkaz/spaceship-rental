@@ -1,31 +1,43 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img
       [src]="spaceship.image"
       alt="{{ spaceship.name }}"
-      class="img-responsive"
-      style="max-height: 300px">
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ spaceship.name }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ spaceship.description }}
-  </div>
-  <div class="col-xs-12">
-    {{ spaceship.detailedDescription }}
-  </div>
-  <div class="col-xs-12">
-    {{ spaceship.engine }}
-  </div>
-  <div class="col-xs-12">
-    {{ spaceship.color }}
-  </div>
-  <div class="col-xs-12">
-    {{ spaceship.wings }}
+      class="img-responsive spaceship-img"
+      >
+    </div>
+    <div class="col-sm-8">
+      <h2>Spaceship: {{ spaceship.name }}</h2>
+      <ul>
+        <li>Desciption: {{ spaceship.description }}</li>
+        <li>Details: {{ spaceship.detailedDescription }}</li>
+        <li>Engine: {{ spaceship.engine }}</li>
+        <li>Color: {{ spaceship.color }}</li>
+        <li>Wings: {{ spaceship.wings }}</li>
+      </ul>
+      <form>
+        <label>Add extra packages!</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="insurance">
+          <label class="form-check-label" for="insurance">
+            Insurance - 1 day (10$)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="touristCard">
+          <label class="form-check-label" for="touristCard">
+            Tourist card - discounts for sightseeing (5% for each ticket)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="nutritionalPackage">
+          <label class="form-check-label" for="nutritionalPackage">
+            Nutritional package - 3 meals/day (30$)
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary my-3">Order my spaceship</button>
+      </form>
+    </div>
   </div>
 </div>
