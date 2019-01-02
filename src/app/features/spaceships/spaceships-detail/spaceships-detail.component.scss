@@ -1,4 +1,12 @@
+@import 'src/_variables.scss';
+
 .spaceship-img {
   max-height: 400px;
   max-width: 300px;
+}
+
+.call-to-action {
+  color: $text-color-call-to-action;
+  font-weight: 700;
+  font-size: $font-size-call-to-action;
 }

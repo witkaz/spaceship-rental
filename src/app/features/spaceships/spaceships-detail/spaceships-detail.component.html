@@ -18,17 +18,17 @@
         <li>Price: {{ spaceship.price }}$ per day</li>
       </ul>
       <form>
-        <label>Add extra packages!</label>
+        <label class="call-to-action">Add extra packages!</label>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="insurance">
           <label class="form-check-label" for="insurance">
-            Insurance - 1 day (10$)
+              Insurance - 1 day (10$)
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="touristCard">
           <label class="form-check-label" for="touristCard">
-            Tourist card - discounts for sightseeing (5% for each ticket)
+            Tourist discount card (each ticket 5$)
           </label>
         </div>
         <div class="form-check">
@@ -43,8 +43,8 @@
               <li>Date range: </li>
               <li>Spaceship: {{ spaceship.name }}</li>
               <li>Price per day: {{ spaceship.price }}$ per day</li>
-              <li>Total price: </li>
               <li>Extra packages: </li>
+              <li class="font-weight-bold">Total price: </li>
             </ul>
         </ng-container>
       </form>
