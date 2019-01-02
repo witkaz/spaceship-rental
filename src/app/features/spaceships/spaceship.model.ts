@@ -8,5 +8,6 @@ export class Spaceship {
               public engine: string,
               public description: string,
               public detailedDescription: string,
-              public image: string) {}
+              public image: string,
+              public price: number) {}
 }

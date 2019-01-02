@@ -11,6 +11,8 @@ import { SpaceshipService } from './../spaceship.service';
 export class SpaceshipsDetailComponent implements OnInit {
   spaceship: Spaceship;
   id: number;
+  public showBtn = false;
+  public btnName = 'Summary & order my spaceship';
 
   constructor(private spaceshipService: SpaceshipService,
               private route: ActivatedRoute,
@@ -24,5 +26,14 @@ export class SpaceshipsDetailComponent implements OnInit {
           this.spaceship = this.spaceshipService.getSpaceship(this.id);
         }
       );
+  }
+
+  showSummary() {
+    this.showBtn = !this.showBtn;
+    if (this.showBtn) {
+      this.btnName = 'Hide summary';
+    } else {
+      this.btnName = 'Summary & order my spaceship';
+    }
   }
 }

@@ -15,6 +15,7 @@
         <li>Engine: {{ spaceship.engine }}</li>
         <li>Color: {{ spaceship.color }}</li>
         <li>Wings: {{ spaceship.wings }}</li>
+        <li>Price: {{ spaceship.price }}$ per day</li>
       </ul>
       <form>
         <label>Add extra packages!</label>
@@ -36,7 +37,16 @@
             Nutritional package - 3 meals/day (30$)
           </label>
         </div>
-        <button type="submit" class="btn btn-primary my-3">Summary & order my spaceship</button>
+        <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
+        <ng-container *ngIf="showBtn">
+            <ul>
+              <li>Date range: </li>
+              <li>Spaceship: {{ spaceship.name }}</li>
+              <li>Price per day: {{ spaceship.price }}$ per day</li>
+              <li>Total price: </li>
+              <li>Extra packages: </li>
+            </ul>
+        </ng-container>
       </form>
     </div>
   </div>
