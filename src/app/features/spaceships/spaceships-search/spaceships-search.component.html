@@ -1,5 +1,9 @@
-<h2 class="text-center pb-3">Rent your spaceship</h2>
-<div class="container-fluid">
+<div class="container">
+  <div class="spaceship-container spaceship-container--one">
+    <div class="spaceship spaceship--one"></div>
+  </div>
+<h2 class="text-center py-3">Rent your spaceship</h2>
+<div class="container-fluid bg-image">
   <div class="row justify-content-center">
     <ngb-datepicker 
       #dp 
@@ -10,64 +14,67 @@
     </ngb-datepicker>
     <ng-template #t let-date let-focused="focused">
       <span class="custom-day"
-            [class.focused]="focused"
-            [class.range]="isRange(date)"
-            [class.faded]="isHovered(date) || isInside(date)"
-            (mouseenter)="hoveredDate = date"
-            (mouseleave)="hoveredDate = null">
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
         {{ date.day }}
       </span>
     </ng-template>
   </div>
   <div class="row justify-content-center mt-3">
     <div class="col-6">
-        <form [formGroup]="spaceshipForm" (ngSubmit)="testSubmit($event)">
-            <div class="form-row col-12 mb-3">
-              <div class="col-12 col-sm-6">
-                  <input type="text" class="form-control" placeholder="Pick up location" formControlName="pickupLocation">
-              </div>
-              <div class="col-12 col-sm-6">
-                  <input type="text" class="form-control" placeholder="Drop off location" formControlName="dropoffLocation">
-              </div>
-            </div>
-          </form>
-          <form>
-            <div class="form-row justify-content-center">
-              <div class="form-group col-md-4">
-                <label>Color</label>
-                <select class="custom-select mb-3">
+      <form [formGroup]="spaceshipForm" (ngSubmit)="testSubmit($event)">
+        <div class="form-row col-12 mb-3">
+          <div class="col-12 col-sm-6">
+            <label>Planet name</label>
+            <input type="text" class="form-control" placeholder="Pick up location" formControlName="pickupLocation">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label>Planet name</label>
+            <input type="text" class="form-control" placeholder="Drop off location" formControlName="dropoffLocation">
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-4">
+            <label>Color</label>
+            <select class="custom-select mb-3">
+              <option selected>Choose...</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="black">Black</option>
+            </select>
+            <label>Size</label>
+            <select class="custom-select mb-3">
+                <option selected>Choose...</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="big">Big</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+              <label>Wings type</label>
+              <select class="custom-select mb-3">
                   <option selected>Choose...</option>
-                  <option value="red">Red</option>
-                  <option value="blue">Blue</option>
-                  <option value="black">Black</option>
-                </select>
-                <label>Size</label>
-                <select class="custom-select mb-3">
-                    <option selected>Choose...</option>
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="big">Big</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                  <label>Wings type</label>
-                  <select class="custom-select mb-3">
-                      <option selected>Choose...</option>
-                      <option value="eagle">Eagle</option>
-                      <option value="sparrow">Sparrow</option>
-                      <option value="pterodactyl">Pterodactyl</option>
-                  </select>
-                  <label>Engine</label>
-                  <select class="custom-select mb-3">
-                      <option selected>Choose...</option>
-                      <option value="slow">Slow (economical)</option>
-                      <option value="fast">Fast</option>
-                      <option value="superfast">Superfast</option>
-                  </select>
-                </div>
+                  <option value="eagle">Eagle</option>
+                  <option value="sparrow">Sparrow</option>
+                  <option value="pterodactyl">Pterodactyl</option>
+              </select>
+              <label>Engine</label>
+              <select class="custom-select mb-3">
+                  <option selected>Choose...</option>
+                  <option value="slow">Slow (economical)</option>
+                  <option value="fast">Fast</option>
+                  <option value="superfast">Superfast</option>
+              </select>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" [disabled]="!spaceshipForm.valid">Search spaceship</button>
-          </form>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" [disabled]="!spaceshipForm.valid">Search spaceship</button>
+      </form>
     </div>
   </div>
+</div>
 </div>

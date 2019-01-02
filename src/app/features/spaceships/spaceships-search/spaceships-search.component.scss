@@ -1,17 +1,19 @@
 .custom-day {
-      text-align: center;
-      padding: 0.185rem 0.25rem;
-      display: inline-block;
-      height: 2rem;
-      width: 2rem;
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
 }
 .custom-day.focused {
   background-color: #e6e6e6;
 }
+
 .custom-day.range, .custom-day:hover {
   background-color: rgb(2, 117, 216);
   color: white;
 }
+
 .custom-day.faded {
   background-color: rgba(2, 117, 216, 0.5);
 }
@@ -20,3 +22,69 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+.spaceship {
+	background-image: url('src/assets/img/bg-images/spaceship-alien.png');
+	background-size: cover;
+	width: 400px;
+	height: 200px;	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
+
+	&--one {
+		animation-duration: 1s;
+		animation-delay: -0.5s;		
+	}
+}
+
+.spaceship-container {
+	position: absolute;
+	top: 20%;
+	left: -10%;
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	
+	&--one {
+		animation-duration: 8s;
+		animation-delay: 0;
+	}
+}
+
+@keyframes fly-right-one {
+	
+	0% {
+		transform: scale(0.3);
+	}
+
+	10% {
+		transform: translateY(2vh) translateX(10vw) scale(0.4);
+	}
+	
+	25% {
+		transform: translateY(0vh) translateX(30vw) scale(0.5);
+	}
+	
+  50% {
+		transform: translateY(4vh) translateX(50vw) scale(0.7);
+	}
+	
+	40% {
+		transform: translateY(2vh) translateX(70vw) scale(0.6);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.5);
+	}
+	
+	60% {
+		transform: translateY(0vh) translateX(110vw) scale(0.3);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.2);
+	}
+}
+
+

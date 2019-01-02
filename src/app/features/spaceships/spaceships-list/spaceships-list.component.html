@@ -1,9 +1,10 @@
-<h2>Your filtered spaceships</h2>
+<h2 class="text-center pt-3">Your filtered spaceships</h2>
 <div class="row col-12 justify-content-around my-5">
   <app-spaceship-item
   *ngFor="let spaceshipEl of spaceships; let i = index"
   [spaceship]="spaceshipEl"
   style="cursor: pointer"
+  class="p-3"
   [index]="i"></app-spaceship-item>
 </div>
 
