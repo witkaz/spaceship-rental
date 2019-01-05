@@ -29,11 +29,37 @@
         <div class="form-row col-12 mb-3">
           <div class="col-12 col-sm-6">
             <label>Planet name*</label>
-            <input type="text" class="form-control" placeholder="Pick up location" formControlName="pickupLocation">
+            <select class="custom-select mb-3" formControlName="pickupLocation">
+              <option value="">Choose...</option>
+              <option value="Earth">Earth</option>
+              <option value="Venus">Venus</option>
+              <option value="Jupiter">Jupiter</option>
+              <option value="Mars">Mars</option>
+              <option value="Pluto">Pluto</option>
+              <option value="Neptune">Neptune</option>
+              <option value="Saturn">Saturn</option>
+              <option value="Mercury">Mercury</option>
+              <option value="Uranus">Uranus</option>
+            </select>
+            <p class="alert-input-message pt-2" *ngIf="pickupLocation.touched && pickupLocation.hasError('required')"> {{ inputErrorMessage }}
+            </p>
           </div>
           <div class="col-12 col-sm-6">
             <label>Planet name*</label>
-            <input type="text" class="form-control" placeholder="Drop off location" formControlName="dropoffLocation">
+            <select class="custom-select mb-3 " formControlName="dropoffLocation">
+              <option value="">Choose...</option>
+              <option value="Earth">Earth</option>
+              <option value="Venus">Venus</option>
+              <option value="Jupiter">Jupiter</option>
+              <option value="Mars">Mars</option>
+              <option value="Pluto">Pluto</option>
+              <option value="Neptune">Neptune</option>
+              <option value="Saturn">Saturn</option>
+              <option value="Mercury">Mercury</option>
+              <option value="Uranus">Uranus</option>
+            </select>
+            <p class="alert-input-message pt-2" *ngIf="dropoffLocation.touched && dropoffLocation.hasError('required')"> {{ inputErrorMessage }}
+            </p>
           </div>
         </div>
         <div class="form-row justify-content-center">

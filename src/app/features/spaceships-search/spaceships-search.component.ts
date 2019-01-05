@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SpaceshipsParams } from '../../shared/models/spaceships/spaceship.model';
 
@@ -13,6 +13,8 @@ export class SpaceshipsSearchComponent implements OnInit {
   fromDate: NgbDate;
   toDate: NgbDate;
   spaceshipForm: FormGroup;
+  inputErrorMessage = 'Please provide planet name';
+
 
   constructor(calendar: NgbCalendar,
               private formBuilder: FormBuilder,
@@ -23,6 +25,14 @@ export class SpaceshipsSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+  }
+
+  get pickupLocation(): FormControl {
+    return this.spaceshipForm.get('pickupLocation') as FormControl;
+  }
+
+  get dropoffLocation(): FormControl {
+    return this.spaceshipForm.get('dropoffLocation') as FormControl;
   }
 
   onDateSelection(date: NgbDate) {

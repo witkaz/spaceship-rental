@@ -18,8 +18,7 @@
   background-color: rgba(2, 117, 216, 0.5);
 }
 
-input.ng-invalid.ng-touched,
-textarea.ng-invalid.ng-touched {
+.custom-select.ng-pristine.ng-invalid.ng-touched{
   border: 1px solid red;
 }
 
