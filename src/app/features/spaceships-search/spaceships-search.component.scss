@@ -22,43 +22,35 @@
   border: 1px solid red;
 }
 
+.alert-input-message {
+	color: red;
+}
+
 .spaceship {
 	background-image: url('/assets/img/bg-images/spaceship-alien.png');
 	background-size: cover;
 	width: 400px;
 	height: 200px;	
-	animation-name: fly-cycle;
-	animation-timing-function: steps(10);
-	animation-iteration-count: infinite;
-
-	&--one {
-		animation-duration: 1s;
-		animation-delay: -0.5s;		
-	}
 }
 
 .spaceship-container {
 	position: absolute;
 	top: 20%;
 	left: -10%;
-	animation-name: fly-right-one;
+	animation-name: spaceship-fly;
 	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	
-	&--one {
-		animation-duration: 8s;
-		animation-delay: 0;
-	}
+	animation-fill-mode: forwards;
+	animation-duration: 9s;
 }
 
-@keyframes fly-right-one {
+@keyframes spaceship-fly {
 	
 	0% {
 		transform: scale(0.3);
 	}
 
 	10% {
-		transform: translateY(2vh) translateX(10vw) scale(0.4);
+		transform: translateY(6vh) translateX(10vw) scale(0.4);
 	}
 	
 	25% {
@@ -66,7 +58,7 @@
 	}
 	
   50% {
-		transform: translateY(4vh) translateX(50vw) scale(0.7);
+		transform: translateY(4vh) translateX(50vw) scale(0.6);
 	}
 	
 	40% {

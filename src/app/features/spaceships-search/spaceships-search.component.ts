@@ -3,6 +3,7 @@ import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SpaceshipsParams } from '../../shared/models/spaceships/spaceship.model';
+import * as moment from 'moment';
 
 @Component({
   templateUrl: './spaceships-search.component.html',
@@ -26,7 +27,7 @@ export class SpaceshipsSearchComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
-
+  
   get pickupLocation(): FormControl {
     return this.spaceshipForm.get('pickupLocation') as FormControl;
   }
@@ -58,7 +59,7 @@ export class SpaceshipsSearchComponent implements OnInit {
     return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
   }
 
-  testSubmit() {
+  filterSpaceship() {
     if (this.spaceshipForm.valid) {
       const queryParams = this.buildParams(this.spaceshipForm.getRawValue());
       this.router.navigate(['spaceships-list'], {queryParams});
@@ -84,6 +85,9 @@ export class SpaceshipsSearchComponent implements OnInit {
       params['wings'] = formValue.wings;
     }
 
+    params['availableFrom_gte'] = this.formatDate(this.fromDate);
+    params['availableTo_lte'] = this.formatDate(this.toDate);
+
     return params;
   }
 
@@ -96,5 +100,10 @@ export class SpaceshipsSearchComponent implements OnInit {
       engine: [''],
       size: ['']
     });
+  }
+
+  private formatDate(date: NgbDate): string {
+    const format = 'YYYYMMDD';
+    return moment([date.year, date.month - 1, date.day]).format(format);
   }
 }

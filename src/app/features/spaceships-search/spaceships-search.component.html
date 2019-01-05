@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="spaceship-container spaceship-container--one">
-    <div class="spaceship spaceship--one"></div>
+  <div class="spaceship-container">
+    <div class="spaceship"></div>
   </div>
 <h2 class="text-center py-3">Rent your spaceship</h2>
 <div class="container-fluid bg-image">
@@ -25,11 +25,11 @@
   </div>
   <div class="row justify-content-center mt-3">
     <div class="col-6">
-      <form [formGroup]="spaceshipForm" (ngSubmit)="testSubmit($event)">
+      <form [formGroup]="spaceshipForm" (ngSubmit)="filterSpaceship($event)">
         <div class="form-row col-12 mb-3">
           <div class="col-12 col-sm-6">
             <label>Planet name*</label>
-            <select class="custom-select mb-3" formControlName="pickupLocation">
+            <select class="custom-select" formControlName="pickupLocation">
               <option value="">Choose...</option>
               <option value="Earth">Earth</option>
               <option value="Venus">Venus</option>
@@ -46,7 +46,7 @@
           </div>
           <div class="col-12 col-sm-6">
             <label>Planet name*</label>
-            <select class="custom-select mb-3 " formControlName="dropoffLocation">
+            <select class="custom-select" formControlName="dropoffLocation">
               <option value="">Choose...</option>
               <option value="Earth">Earth</option>
               <option value="Venus">Venus</option>
