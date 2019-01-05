@@ -1,24 +1,21 @@
-import { SpaceshipService } from './../spaceship.service';
-import { Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Spaceship } from './../spaceship.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { SpaceshipService } from '../../core/services/spaceship.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Spaceship } from '../../shared/models/spaceships/spaceship.model';
 
 @Component({
-  selector: 'app-spaceships-list',
   templateUrl: './spaceships-list.component.html',
   styleUrls: ['./spaceships-list.component.scss']
 })
 export class SpaceshipsListComponent implements OnInit {
-  spaceships: Spaceship[];
-  subscription: Subscription;
+  spaceships: Spaceship[] = [];
 
   constructor(private spaceshipService: SpaceshipService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.spaceships = this.spaceshipService.getSpaceships();
+    this.spaceships = this.route.snapshot.data.spaceships;
   }
 
   // onNewSpaceship() {

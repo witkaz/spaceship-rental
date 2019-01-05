@@ -1,19 +1,31 @@
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { SpaceshipService } from './services/spaceship.service';
+import { SpaceshipsListResolver } from './resolvers/spaceships-list.resolver';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { SpaceshipsDetailResolver } from './resolvers/spaceships-detail.resolver';
 
-const components = [
+const declarations = [
   NavbarComponent
 ];
-const imports = [];
-const modules = [
+const imports = [
+  HttpClientModule,
+  CommonModule
 ];
-const providers = [];
-const exported = [];
+const providers = [
+  SpaceshipService,
+  SpaceshipsListResolver,
+  SpaceshipsDetailResolver
+];
+const exports = [
+  ...declarations
+];
 
 @NgModule({
-  declarations: components,
-  imports: modules,
-  exports: [...components],
+  declarations,
+  imports,
+  exports
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {

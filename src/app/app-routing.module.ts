@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SpaceshipsSearchComponent } from './features/spaceships/spaceships-search/spaceships-search.component';
 
 const routes: Routes = [
   {
@@ -10,7 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'spaceships-search',
-    component: SpaceshipsSearchComponent
+    loadChildren: './features/spaceships-search/spaceships-search.module#SpaceshipsSearchModule'
+  },
+  {
+    path: 'spaceships-list',
+    loadChildren: './features/spaceships-list/spaceships-list.module#SpaceshipsListModule'
   },
   {
     path: '**',

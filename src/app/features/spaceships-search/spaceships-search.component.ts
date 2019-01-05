@@ -1,0 +1,90 @@
+import { Component, OnInit } from '@angular/core';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SpaceshipsParams } from '../../shared/models/spaceships/spaceship.model';
+
+@Component({
+  templateUrl: './spaceships-search.component.html',
+  styleUrls: ['./spaceships-search.component.scss']
+})
+export class SpaceshipsSearchComponent implements OnInit {
+  hoveredDate: NgbDate;
+  fromDate: NgbDate;
+  toDate: NgbDate;
+  spaceshipForm: FormGroup;
+
+  constructor(calendar: NgbCalendar,
+              private formBuilder: FormBuilder,
+              private router: Router) {
+    this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 5);
+  }
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+  }
+
+  testSubmit() {
+    if (this.spaceshipForm.valid) {
+      const queryParams = this.buildParams(this.spaceshipForm.getRawValue());
+      this.router.navigate(['spaceships-list'], {queryParams});
+    }
+  }
+
+  private buildParams(formValue: SpaceshipsParams): SpaceshipsParams {
+    const params = {
+      pickupLocation: formValue.pickupLocation,
+      dropoffLocation: formValue.dropoffLocation
+    };
+
+    if (formValue.engine !== '') {
+      params['engine'] = formValue.engine;
+    }
+    if (formValue.size !== '') {
+      params['size'] = formValue.size;
+    }
+    if (formValue.color !== '') {
+      params['color'] = formValue.color;
+    }
+    if (formValue.wings !== '') {
+      params['wings'] = formValue.wings;
+    }
+
+    return params;
+  }
+
+  private initForm() {
+    this.spaceshipForm = this.formBuilder.group({
+      pickupLocation: ['', Validators.required],
+      dropoffLocation: ['', Validators.required],
+      color: [''],
+      wings: [''],
+      engine: [''],
+      size: ['']
+    });
+  }
+}

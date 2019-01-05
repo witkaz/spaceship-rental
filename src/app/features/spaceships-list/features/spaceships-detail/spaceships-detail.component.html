@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-sm-4">
       <img
-      [src]="spaceship.image"
+      [src]="spaceship.imagePath"
       alt="{{ spaceship.name }}"
       class="img-responsive spaceship-img"
       >
@@ -10,7 +10,7 @@
     <div class="col-sm-8">
       <h2>Spaceship: {{ spaceship.name }}</h2>
       <ul>
-        <li>Desciption: {{ spaceship.description }}</li>
+        <li>Description: {{ spaceship.description }}</li>
         <li>Details: {{ spaceship.detailedDescription }}</li>
         <li>Engine: {{ spaceship.engine }}</li>
         <li>Color: {{ spaceship.color }}</li>

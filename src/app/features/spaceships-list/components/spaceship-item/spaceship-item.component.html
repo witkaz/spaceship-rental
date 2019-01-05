@@ -1,8 +1,7 @@
-<a style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active" class="list-group-item clearfix">
+<a (click)="spaceshipDetails(spaceship.id)" [routerLink]="[index]" routerLinkActive="active" class="list-group-item clearfix">
   <h4 class="list-group-item-heading">{{ spaceship.name }}</h4>
   <p class="list-group-item-text">{{ spaceship.description }}</p>
   <li>Engine: {{ spaceship.engine }}</li>
   <li>Color: {{ spaceship.color }}</li>
   <li>Wings: {{ spaceship.wings }}</li>
 </a>
-  

@@ -5,7 +5,7 @@ const declarations = [];
 const imports = [
   CommonModule
 ];
-const exported = [
+const exports = [
   ...declarations,
   CommonModule
 ];
@@ -13,6 +13,6 @@ const exported = [
 @NgModule({
   declarations,
   imports,
-  exports: exported
+  exports
 })
 export class SharedModule {}
