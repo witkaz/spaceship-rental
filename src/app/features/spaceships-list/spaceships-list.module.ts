@@ -6,7 +6,7 @@ import { SpaceshipsListRoutingModule } from './spaceships-list-routing.module';
 
 const declarations = [
   SpaceshipsListComponent,
-  SpaceshipItemComponent
+  SpaceshipItemComponent,
 ];
 const imports = [
   SharedModule,

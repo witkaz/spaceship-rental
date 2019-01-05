@@ -27,7 +27,7 @@ export class SpaceshipsSearchComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
-  
+
   get pickupLocation(): FormControl {
     return this.spaceshipForm.get('pickupLocation') as FormControl;
   }

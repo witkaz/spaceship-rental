@@ -17,37 +17,35 @@
         <li>Wings: {{ spaceship.wings }}</li>
         <li>Price: {{ spaceship.price }}$ per day</li>
       </ul>
-      <form>
-        <label class="call-to-action">Add extra packages!</label>
+      <form [formGroup]="summaryOrderForm">
+        <p class="call-to-action">Add extra packages!</p>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="insurance">
+          <input class="form-check-input" type="checkbox" id="insurance" value="50" formControlName="insurance">
           <label class="form-check-label" for="insurance">
-              Insurance - 1 day (10$)
+              Insurance - ({{ insurancePrice }}$)
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="touristCard">
+          <input class="form-check-input" type="checkbox" id="touristCard" value="20" formControlName="touristCard">
           <label class="form-check-label" for="touristCard">
-            Tourist discount card (each ticket 5$)
+            Tourist discount card - each ticket costs 5$ ({{ touristCardPrice }}$)
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="nutritionalPackage">
+          <input class="form-check-input" type="checkbox" id="nutritionalPackage" value="30" formControlName="nutritionalPackage">
           <label class="form-check-label" for="nutritionalPackage">
-            Nutritional package - 3 meals/day (30$)
+            Nutritional package - 3 meals/day ({{ nutritionalPackagePrice }})
           </label>
         </div>
-        <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
-        <ng-container *ngIf="showBtn">
-            <ul>
-              <li>Date range: </li>
-              <li>Spaceship: {{ spaceship.name }}</li>
-              <li>Price per day: {{ spaceship.price }}$ per day</li>
-              <li>Extra packages: </li>
-              <li class="font-weight-bold">Total price: </li>
-            </ul>
-        </ng-container>
       </form>
-    </div>
+      <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
+      <ng-container *ngIf="showBtn">
+          <ul>
+            <li>Spaceship: {{ spaceship.name }}</li>
+            <li>Price per day: {{ spaceship.price }}$ per day</li>
+            <li>Extra packages: </li>
+            <li class="font-weight-bold">Total price: </li>
+          </ul>
+      </ng-container>
   </div>
 </div>
