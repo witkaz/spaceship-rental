@@ -18,56 +18,20 @@
   </div>
 </div>
 <div *ngIf="dataFiltered.length > 0; else noData" class="container">
-
-  <div *ngIf="spaceships.length > 0; else" class="col-md-12">
-      <h2 class="text-center pt-3">Your filtered spaceships</h2>
-      <div class="row col-12 justify-content-center my-5">
-        <app-spaceship-item
-            *ngFor="let spaceshipEl of spaceships"
-            [index]="spaceshipEl.id"
-            [spaceship]="spaceshipEl"
-            class="p-3"
-            style="cursor: pointer"></app-spaceship-item>
-      </div>
+  <div class="col-md-12">
+    <h2 class="text-center pt-3">Your filtered spaceships</h2>
+    <div class="row col-12 justify-content-center my-5">
+      <app-spaceship-item
+          *ngFor="let spaceshipEl of dataFiltered" 
+          [index]="spaceshipEl.id"
+          [spaceship]="spaceshipEl"
+          class="p-3"
+          style="cursor: pointer"></app-spaceship-item>
     </div>
-  <!-- <table class="table">
-    <thead>
-      <tr>
-        <th>Engine</th>
-        <th>Color</th>
-        <th>Wings</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let obj of dataFiltered">
-        <td>{{obj.engine}}</td>
-        <td>{{obj.color}}</td>
-        <td>{{obj.wings}}</td>
-      </tr>
-    </tbody>
-  </table> -->
+  </div>
 </div>
 <ng-template #noData>
   <div class="col-md-12 text-center mt-5 border-bottom">
     <h2><i class="fas fa-info-circle text-primary pr-2"></i>Sorry, no spaceships were found. Please try other filters</h2>
   </div>
 </ng-template>
-
-
-<!-- 
-<div *ngIf="spaceships.length > 0; else" class="col-md-12">
-  <h2 class="text-center pt-3">Your filtered spaceships</h2>
-  <div class="row col-12 justify-content-center my-5">
-    <app-spaceship-item
-        *ngFor="let spaceshipEl of spaceships"
-        [index]="spaceshipEl.id"
-        [spaceship]="spaceshipEl"
-        class="p-3"
-        style="cursor: pointer"></app-spaceship-item>
-  </div>
-</div> -->
-<!-- <ng-template #noSpaceships>
-  <div class="col-md-12 text-center mt-5">
-    <h2><i class="fas fa-info-circle text-primary pr-2"></i>Sorry, no spaceships were found. Please try other filters</h2>
-  </div>
-</ng-template> -->

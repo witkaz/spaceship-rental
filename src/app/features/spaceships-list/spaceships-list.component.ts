@@ -1,20 +1,7 @@
 import { SpaceshipService } from '../../core/services/spaceship.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Spaceship, SpaceshipsParams } from '../../shared/models/spaceships/spaceship.model';
-
-// interface SpaceshipInterface {
-//   engine: string;
-//   color: string;
-//   wings: string;
-// }
-
-interface SpaceshipInterfaceFilters {
-  engine: string;
-  color: string;
-  wings: string;
-}
-
+import { Spaceship, SpaceshipsParams, SpaceshipInterfaceFilters} from '../../shared/models/spaceships/spaceship.model';
 
 @Component({
   templateUrl: './spaceships-list.component.html',
@@ -28,25 +15,7 @@ export class SpaceshipsListComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute) { }
 
-  // data: SpaceshipInterface[] = [
-  //   {
-  //     engine: 'Fast',
-  //     color: 'Blue',
-  //     wings: 'Eagle'
-  //   },
-  //   {
-  //     engine: 'Fast',
-  //     color: 'Red',
-  //     wings: 'Eagle'
-  //   },
-  //   {
-  //     engine: 'Fast',
-  //     color: 'Black',
-  //     wings: 'ddd'
-  //   },
-  // ];
-
-  dataFiltered: SpaceshipsParams[] = [];
+  dataFiltered: Spaceship[] = [];
   filters: SpaceshipInterfaceFilters;
 
   private defaultFilters: SpaceshipInterfaceFilters = {
@@ -66,9 +35,9 @@ export class SpaceshipsListComponent implements OnInit {
 
     if (this.filters) {
       this.dataFiltered = tmp.filter(
-        obj => this.containsProperty(obj.engine.toString(), this.filters.engine) &&
-          this.containsProperty(obj.color, this.filters.color) &&
-          this.containsProperty(obj.wings, this.filters.wings)
+        spaceshipEl => this.containsProperty(spaceshipEl.engine.toString(), this.filters.engine) &&
+          this.containsProperty(spaceshipEl.color, this.filters.color) &&
+          this.containsProperty(spaceshipEl.wings, this.filters.wings)
       );
     }
   }

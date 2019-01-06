@@ -21,3 +21,9 @@ export interface SpaceshipsParams {
   size?: string;
   engine?: string;
 }
+
+export interface SpaceshipInterfaceFilters {
+  engine: string;
+  color: string;
+  wings: string;
+}
