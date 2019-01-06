@@ -28,10 +28,9 @@
       <form [formGroup]="spaceshipForm" (ngSubmit)="filterSpaceship($event)">
         <div class="form-row col-12 mb-3">
           <div class="col-12 col-sm-6">
-            <label>Planet name*</label>
+            <label>Pick-up location planet name*</label>
             <select class="custom-select" formControlName="pickupLocation">
               <option value="">Choose...</option>
-              <option value="Anywhere">Anywhere</option>
               <option value="Earth">Earth</option>
               <option value="Venus">Venus</option>
               <option value="Jupiter">Jupiter</option>
@@ -46,10 +45,9 @@
             </p>
           </div>
           <div class="col-12 col-sm-6">
-            <label>Planet name*</label>
+            <label>Drop-off location planet name*</label>
             <select class="custom-select" formControlName="dropoffLocation">
               <option value="">Choose...</option>
-              <option value="Anywhere">Anywhere</option>
               <option value="Earth">Earth</option>
               <option value="Venus">Venus</option>
               <option value="Jupiter">Jupiter</option>

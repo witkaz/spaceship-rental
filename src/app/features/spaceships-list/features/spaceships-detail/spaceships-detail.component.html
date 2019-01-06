@@ -20,41 +20,21 @@
       </ul>
       <form>
         <p class="call-to-action">Add extra packages!</p>
-        <!-- <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="insurance" value="{{ insurancePrice }}" formControlName="insurance">
-          <label class="form-check-label" for="insurance">
-              Insurance - ({{ insurancePrice }}$)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="touristCard" value="{{ touristCardPrice }}" formControlName="touristCard">
-          <label class="form-check-label" for="touristCard">
-            Tourist discount card - each ticket costs 5$ ({{ touristCardPrice }}$)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="nutritionalPackage" value="{{ nutritionalPackagePrice }}" formControlName="nutritionalPackage">
-          <label class="form-check-label" for="nutritionalPackage">
-            Nutritional package - 3 meals/day ({{ nutritionalPackagePrice }}$)
-          </label>
-        </div> -->
-
         <div class="form-check ml-4" *ngFor="let package of extraPackages">
             <input class="form-check-input" id="{{package.name}}" type="checkbox" (change)="onExtraPackagesChange(package.name, $event.target.checked)">
             <label class="form-check-label" for="{{package.name}}">
-                {{package.name}}
+                {{package.label}}
             </label>
         </div>
         <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
       </form>
-    
     <ng-container *ngIf="showBtn">
         <ul>
           <li>Spaceship: {{ spaceship.name }}</li>
           <li>Route: from {{ spaceship.pickupLocation }} to {{ spaceship.dropoffLocation }}</li>
           <li>Price per day: {{ spaceship.price }}$ per day</li>
-          <li>Extra packages: {{summaryOrderForm.value | json}}</li>
-          <li class="font-weight-bold">Total price: </li>
+          <li *ngIf="packages.length > 0">Extra packages: {{packages.join(', ')}}</li>
+          <li class="font-weight-bold">Total price: {{totalPrice}}$</li>
         </ul>
     </ng-container>
   </div>

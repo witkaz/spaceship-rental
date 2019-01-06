@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { SpaceshipService } from '../services/spaceship.service';
 import { Observable } from 'rxjs';
 import { Spaceship, SpaceshipsParams } from '../../shared/models/spaceships/spaceship.model';
+import * as moment from 'moment';
 
 @Injectable()
 export class SpaceshipsListResolver implements Resolve<Spaceship[]> {
@@ -11,7 +12,8 @@ export class SpaceshipsListResolver implements Resolve<Spaceship[]> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<Spaceship[]> {
     const queryParams = route.queryParams as SpaceshipsParams;
-    console.log(queryParams);
+    const bookingDaysDiff = moment(queryParams['availableTo_lte']).diff(queryParams['availableFrom_gte'], 'days');
+    localStorage.setItem('bookingDays', bookingDaysDiff.toString());
     return this.spaceshipService.getSpaceshipsList(queryParams);
   }
 }

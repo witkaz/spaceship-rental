@@ -22,8 +22,3 @@ export interface SpaceshipsParams {
   engine?: string;
 }
 
-export interface SpaceshipFilters {
-  engine: string;
-  color: string;
-  wings: string;
-}

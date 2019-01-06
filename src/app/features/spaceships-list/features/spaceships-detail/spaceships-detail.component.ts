@@ -12,21 +12,25 @@ export class SpaceshipsDetailComponent implements OnInit {
   showBtn = false;
   btnName = 'Show order summary';
   summaryOrderForm: FormGroup;
-  insurancePrice = 50;
-  touristCardPrice = 20;
-  nutritionalPackagePrice = 30;
+  insurance = 60;
+  tourist = 30;
+  photoAlbum = 40;
+  totalPrice: number;
+  packages: string[] = [];
+  bookingDaysDiff: number;
   extraPackages = [
-    { name: `Insurance - (${this.insurancePrice}$)` },
-    { name: `Tourist discount card - each ticket costs 5$ - (${this.touristCardPrice}$)` },
-    { name: `Nutritional package - 3 meals/day - (${this.nutritionalPackagePrice}$)` },
+    { name: 'insurance', label: `Insurance - (${this.insurance}$)` },
+    { name: 'tourist', label: `Tourist ticket discount card - (${this.tourist}$)` },
+    { name: 'photoAlbum', label: `Photo album - (${this.photoAlbum}$)` },
   ];
 
   constructor(private route: ActivatedRoute,
               private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    // this.initSummaryForm();
     this.spaceship = this.route.snapshot.data.spaceship;
+    this.bookingDaysDiff = +localStorage.getItem('bookingDays');
+    this.totalPrice = this.spaceship.price * this.bookingDaysDiff;
     this.summaryOrderForm = this.formBuilder.group({
       extraPackages: this.formBuilder.array([])
     });
@@ -41,23 +45,18 @@ export class SpaceshipsDetailComponent implements OnInit {
     }
   }
 
-  // private initSummaryForm() {
-  //   this.summaryOrderForm = this.formBuilder.group({
-  //     insurance: [''],
-  //     touristCard: [''],
-  //     nutritionalPackage: ['']
-  //   });
-  // }
-
   onExtraPackagesChange(name: string, isChecked: boolean) {
     const extraPackagesFormArray = <FormArray>this.summaryOrderForm.controls.extraPackages;
 
     if (isChecked) {
       extraPackagesFormArray.push(new FormControl(name));
+      this.totalPrice += this[name];
+      this.packages.push(name.toUpperCase());
     } else {
       const index = extraPackagesFormArray.controls.findIndex(x => x.value === name);
       extraPackagesFormArray.removeAt(index);
-      // if empty value === None
+      this.totalPrice -= this[name];
+      this.packages.splice(index);
     }
   }
 }
