@@ -56,7 +56,7 @@ export class SpaceshipsDetailComponent implements OnInit {
       const index = extraPackagesFormArray.controls.findIndex(x => x.value === name);
       extraPackagesFormArray.removeAt(index);
       this.totalPrice -= this[name];
-      this.packages.splice(index);
+      this.packages.splice(index, 1);
     }
   }
 }
