@@ -4,7 +4,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Before running the project run `npm install` in the terminal.
+
+To start the app please run `npm start`.
+Please also run `npm run server` to connect to the json-server (mocked data for spaceships).
+
+## Spaceships filtering
+
+Tip: to display the largest number of ships for filtering, please tick the date from January 1 to April 30.
+For pick-up location choose 'Earth' and for drop-off location choose 'Venus'.
 
 ## Code scaffolding
 
