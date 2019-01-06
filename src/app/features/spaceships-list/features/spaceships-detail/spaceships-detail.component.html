@@ -1,5 +1,5 @@
 <div class="container spaceship-list-container">
-  <div class="row mt-5">
+  <div class="row my-5">
     <div class="col-lg-4">
       <img
       [src]="spaceship.imagePath"
@@ -12,14 +12,15 @@
       <ul>
         <li>Description: {{ spaceship.description }}</li>
         <li>Details: {{ spaceship.detailedDescription }}</li>
+        <li>Route: from {{ spaceship.pickupLocation }} to {{ spaceship.dropoffLocation }}</li>
         <li>Engine: {{ spaceship.engine }}</li>
         <li>Color: {{ spaceship.color }}</li>
         <li>Wings: {{ spaceship.wings }}</li>
         <li>Price: {{ spaceship.price }}$ per day</li>
       </ul>
-      <form [formGroup]="summaryOrderForm" (ngSubmit)="submitExtraPackages()">
+      <form>
         <p class="call-to-action">Add extra packages!</p>
-        <div class="form-check">
+        <!-- <div class="form-check">
           <input class="form-check-input" type="checkbox" id="insurance" value="{{ insurancePrice }}" formControlName="insurance">
           <label class="form-check-label" for="insurance">
               Insurance - ({{ insurancePrice }}$)
@@ -36,14 +37,23 @@
           <label class="form-check-label" for="nutritionalPackage">
             Nutritional package - 3 meals/day ({{ nutritionalPackagePrice }}$)
           </label>
+        </div> -->
+
+        <div class="form-check ml-4" *ngFor="let package of extraPackages">
+            <input class="form-check-input" id="{{package.name}}" type="checkbox" (change)="onExtraPackagesChange(package.name, $event.target.checked)">
+            <label class="form-check-label" for="{{package.name}}">
+                {{package.name}}
+            </label>
         </div>
         <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
       </form>
-      <ng-container *ngIf="showBtn">
+    
+    <ng-container *ngIf="showBtn">
         <ul>
           <li>Spaceship: {{ spaceship.name }}</li>
+          <li>Route: from {{ spaceship.pickupLocation }} to {{ spaceship.dropoffLocation }}</li>
           <li>Price per day: {{ spaceship.price }}$ per day</li>
-          <li>Extra packages: </li>
+          <li>Extra packages: {{summaryOrderForm.value | json}}</li>
           <li class="font-weight-bold">Total price: </li>
         </ul>
     </ng-container>

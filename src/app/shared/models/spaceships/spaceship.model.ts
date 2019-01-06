@@ -22,7 +22,7 @@ export interface SpaceshipsParams {
   engine?: string;
 }
 
-export interface SpaceshipInterfaceFilters {
+export interface SpaceshipFilters {
   engine: string;
   color: string;
   wings: string;

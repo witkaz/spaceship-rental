@@ -1,7 +1,7 @@
 import { SpaceshipService } from '../../core/services/spaceship.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Spaceship, SpaceshipsParams, SpaceshipInterfaceFilters} from '../../shared/models/spaceships/spaceship.model';
+import { Spaceship, SpaceshipsParams, SpaceshipFilters} from '../../shared/models/spaceships/spaceship.model';
 
 @Component({
   templateUrl: './spaceships-list.component.html',
@@ -16,9 +16,9 @@ export class SpaceshipsListComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   dataFiltered: Spaceship[] = [];
-  filters: SpaceshipInterfaceFilters;
+  filters: SpaceshipFilters;
 
-  private defaultFilters: SpaceshipInterfaceFilters = {
+  private defaultFilters: SpaceshipFilters = {
     engine: '',
     color: '',
     wings: ''
