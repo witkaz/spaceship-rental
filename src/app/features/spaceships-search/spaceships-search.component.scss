@@ -3,13 +3,17 @@
   padding: 0.185rem 0.25rem;
   display: inline-block;
   height: 2rem;
-  width: 2rem;
+	width: 2rem;
+	&:hover {
+		background-color: rgb(2, 117, 216);
+		color: white;
+	}
 }
 .custom-day.focused {
   background-color: #e6e6e6;
 }
 
-.custom-day.range, .custom-day:hover {
+.custom-day.range {
   background-color: rgb(2, 117, 216);
   color: white;
 }
@@ -18,7 +22,7 @@
   background-color: rgba(2, 117, 216, 0.5);
 }
 
-.custom-select.ng-pristine.ng-invalid.ng-touched{
+.custom-select.ng-invalid.ng-touched{
   border: 1px solid red;
 }
 
@@ -36,7 +40,6 @@
 .spaceship-container {
 	position: absolute;
 	top: 20%;
-	left: -10%;
 	animation-name: spaceship-fly;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;

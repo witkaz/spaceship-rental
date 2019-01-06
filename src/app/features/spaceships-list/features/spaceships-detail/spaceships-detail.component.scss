@@ -1,5 +1,9 @@
 @import 'src/_variables.scss';
 
+.spaceship-list-container {
+  box-shadow: $box-shadow-container;
+}
+
 .spaceship-img {
   max-height: 400px;
   max-width: 300px;
@@ -9,4 +13,11 @@
   color: $text-color-call-to-action;
   font-weight: 700;
   font-size: $font-size-call-to-action;
+}
+
+.btn-info {
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }

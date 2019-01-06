@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container spaceship-list-container">
   <div class="row mt-5">
-    <div class="col-sm-4">
+    <div class="col-lg-4">
       <img
       [src]="spaceship.imagePath"
       alt="{{ spaceship.name }}"
-      class="img-responsive spaceship-img"
+      class="img-responsive spaceship-img mt-5"
       >
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 pt-3">
       <h2>Spaceship: {{ spaceship.name }}</h2>
       <ul>
         <li>Description: {{ spaceship.description }}</li>
@@ -17,35 +17,35 @@
         <li>Wings: {{ spaceship.wings }}</li>
         <li>Price: {{ spaceship.price }}$ per day</li>
       </ul>
-      <form [formGroup]="summaryOrderForm">
+      <form [formGroup]="summaryOrderForm" (ngSubmit)="submitExtraPackages()">
         <p class="call-to-action">Add extra packages!</p>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="insurance" value="50" formControlName="insurance">
+          <input class="form-check-input" type="checkbox" id="insurance" value="{{ insurancePrice }}" formControlName="insurance">
           <label class="form-check-label" for="insurance">
               Insurance - ({{ insurancePrice }}$)
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="touristCard" value="20" formControlName="touristCard">
+          <input class="form-check-input" type="checkbox" id="touristCard" value="{{ touristCardPrice }}" formControlName="touristCard">
           <label class="form-check-label" for="touristCard">
             Tourist discount card - each ticket costs 5$ ({{ touristCardPrice }}$)
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="nutritionalPackage" value="30" formControlName="nutritionalPackage">
+          <input class="form-check-input" type="checkbox" id="nutritionalPackage" value="{{ nutritionalPackagePrice }}" formControlName="nutritionalPackage">
           <label class="form-check-label" for="nutritionalPackage">
-            Nutritional package - 3 meals/day ({{ nutritionalPackagePrice }})
+            Nutritional package - 3 meals/day ({{ nutritionalPackagePrice }}$)
           </label>
         </div>
+        <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
       </form>
-      <button type="submit" class="btn btn-info my-3" (click)="showSummary()">{{ btnName }}</button>
       <ng-container *ngIf="showBtn">
-          <ul>
-            <li>Spaceship: {{ spaceship.name }}</li>
-            <li>Price per day: {{ spaceship.price }}$ per day</li>
-            <li>Extra packages: </li>
-            <li class="font-weight-bold">Total price: </li>
-          </ul>
-      </ng-container>
+        <ul>
+          <li>Spaceship: {{ spaceship.name }}</li>
+          <li>Price per day: {{ spaceship.price }}$ per day</li>
+          <li>Extra packages: </li>
+          <li class="font-weight-bold">Total price: </li>
+        </ul>
+    </ng-container>
   </div>
 </div>

@@ -1,4 +1,4 @@
-@import './variables';
+@import 'src/_variables.scss';
 
 .brand-img {
   width: 80px;
@@ -6,11 +6,11 @@
 }
 
 .navbar {
-  color: #ffffff;
-  background: $navbar-bg;
+  color: $text-color;
+  background-color: $primary-color;
 }
 
 .page-heading {
   font-size: 2.25rem;
-  color: #ffffff;
+  color: $text-color
 }

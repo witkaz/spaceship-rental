@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { SpaceshipsListComponent } from './spaceships-list.component';
 import { SpaceshipItemComponent } from './components/spaceship-item/spaceship-item.component';
@@ -10,7 +11,8 @@ const declarations = [
 ];
 const imports = [
   SharedModule,
-  SpaceshipsListRoutingModule
+  SpaceshipsListRoutingModule,
+  FormsModule
 ];
 
 @NgModule({

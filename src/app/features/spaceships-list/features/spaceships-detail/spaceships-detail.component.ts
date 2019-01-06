@@ -15,6 +15,11 @@ export class SpaceshipsDetailComponent implements OnInit {
   insurancePrice = 50;
   touristCardPrice = 20;
   nutritionalPackagePrice = 30;
+  extraPackages = [
+    { name: 'insurance' },
+    { name: 'tourist card' },
+    { name: 'nutritional package' },
+  ];
 
   constructor(private route: ActivatedRoute,
               private formBuilder: FormBuilder) {}

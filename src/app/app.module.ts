@@ -11,7 +11,7 @@ const declarations = [
 const imports = [
   BrowserModule,
   CoreModule.forRoot(),
-  AppRoutingModule,
+  AppRoutingModule
 ];
 
 @NgModule({
