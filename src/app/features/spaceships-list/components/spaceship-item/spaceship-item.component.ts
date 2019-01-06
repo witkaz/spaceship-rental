@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-spaceship-item',
-  templateUrl: './spaceship-item.component.html',
-  styleUrls: ['./spaceship-item.component.scss']
+  templateUrl: './spaceship-item.component.html'
 })
 export class SpaceshipItemComponent {
   @Input() spaceship: Spaceship;

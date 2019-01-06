@@ -35,19 +35,18 @@
 	background-size: cover;
 	width: 400px;
 	height: 200px;	
-}
-
-.alien-spaceship-container {
 	position: absolute;
 	top: 20%;
+	left: -5%;
 	animation-name: alien-spaceship-fly;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;
 	animation-duration: 9s;
+
+	
 }
 
 @keyframes alien-spaceship-fly {
-	
 	0% {
 		transform: scale(0.3);
 	}
